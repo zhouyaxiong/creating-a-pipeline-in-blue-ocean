@@ -2,6 +2,10 @@ pipeline {
   agent any
   stages {
     stage('Build') {
+      agent any
+      environment {
+        username = 'zhouyx'
+      }
       steps {
         sh 'echo \'build\''
         echo '${username}'
@@ -17,6 +21,7 @@ pipeline {
     stage('deploy') {
       steps {
         echo 'Deploy success'
+        catchError()
       }
     }
 
