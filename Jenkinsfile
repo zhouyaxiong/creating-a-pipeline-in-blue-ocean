@@ -4,7 +4,7 @@ pipeline {
     stage('Build') {
       steps {
         sh 'echo \'build\''
-        echo '$username'
+        echo '${username}'
       }
     }
 
