@@ -24,8 +24,19 @@ pipeline {
     }
 
     stage('Test') {
-      steps {
-        echo 'test success'
+      parallel {
+        stage('Test') {
+          steps {
+            echo 'test success'
+          }
+        }
+
+        stage('test2') {
+          steps {
+            echo 'test2 success'
+          }
+        }
+
       }
     }
 
